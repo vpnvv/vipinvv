@@ -14,6 +14,7 @@
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style-starter.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 </head>
@@ -467,7 +468,7 @@
 
           
           <div class="map-content-9">
-            <form id="contact" method="POST">
+            <form id="submit-form" action="">
               
               <!-- <input type="hidden" name="type" value="contact"> -->
               <div class="twice-two">
@@ -480,7 +481,7 @@
               <textarea name="message" class="form-control" placeholder="Message" required></textarea>
               <div class="text-center">
                 <!-- <button type="submit" class="btn btn-primary btn-style mt-4">Send Message</button> -->
-               <a href="javascript:void(0)" class="href"> <button  class="btn btn-primary btn-style mt-4">Send Message</button></a>
+               <button type="submit" class="btn btn-primary btn-style mt-4">Send Message</button>
 
               </div>
             </form>
@@ -522,6 +523,8 @@
       <span class="fa fa-angle-up"></span>
     </button>
 
+    
+
    
 
     <script>
@@ -549,8 +552,34 @@
   <!-- //Footer -------------------------------------------------------------------------------------->
 
   <!-- all js scripts and files here -->
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script>
+    $("#submit-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbz8xn1ddqitfDa50UXh-pmhX312CnLyMd0iVUrgywociSA_28ZCFw5oXcnkgL15CQkd/exec",
+            data:$("#submit-form").serialize(),
+            method:"post",
+            success:function (response){
+                // alert("Form submitted successfully")
+                swal("success", "your Application has been successfully submited", "success");
+
+                window.location.reload()
+                //window.location.href="https://google.com"
+            },
+            error:function (err){
+                // alert("Something Error")
+                swal("Failed", "your Application has not been sent", "error");
+
+                console.log(err, 'errorrr');
+
+            }
+        })
+    })
+</script>
  
-  
   <script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
   <script src="assets/js/jquery-3.3.1.min.js"></script><!-- default jQuery -->
  
