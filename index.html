@@ -14,7 +14,6 @@
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style-starter.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 </head>
@@ -552,36 +551,16 @@
   <!-- //Footer -------------------------------------------------------------------------------------->
 
   <!-- all js scripts and files here -->
-
+  <script src="assets/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="assets/js/jquery-3.3.1.min.js"></script><!-- default jQuery -->
+  <script src="assets/js/jquery-1.7.2.js"></script><!-- default jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <script>
-    $("#submit-form").submit((e)=>{
-        e.preventDefault()
-        $.ajax({
-            url:"https://script.google.com/macros/s/AKfycbz8xn1ddqitfDa50UXh-pmhX312CnLyMd0iVUrgywociSA_28ZCFw5oXcnkgL15CQkd/exec",
-            data:$("#submit-form").serialize(),
-            method:"post",
-            success:function (response){
-                // alert("Form submitted successfully")
-                swal("success", "your Application has been successfully submited", "success");
 
-                window.location.reload()
-                //window.location.href="https://google.com"
-            },
-            error:function (err){
-                // alert("Something Error")
-                swal("Failed", "your Application has not been sent", "error");
 
-                console.log(err, 'errorrr');
-
-            }
-        })
-    })
-</script>
  
   <script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
-  <script src="assets/js/jquery-3.3.1.min.js"></script><!-- default jQuery -->
  
   <!-- /typig-text-->
   <script>
@@ -793,6 +772,32 @@
     });
   </script>
 
+
+<script>
+  $("#submit-form").submit((e)=>{
+    $('button').prop('disabled', true)
+      e.preventDefault()
+      $.ajax({
+          url:"https://script.google.com/macros/s/AKfycbz8xn1ddqitfDa50UXh-pmhX312CnLyMd0iVUrgywociSA_28ZCFw5oXcnkgL15CQkd/exec",
+          data:$("#submit-form").serialize(),
+          method:"post",
+          success:function (response){
+              swal("success", "your Application has been successfully submited", "success");
+              // setTimeout(location.reload.bind(location), 4000)
+              //window.location.href="https://google.com"
+              console.log('successsss', response);
+          },
+          error:function (err){
+              // alert("Something Error")
+              swal("Failed", "your Application has not been sent", "error");
+              // window.location.reload()
+
+              console.log(err, 'errorrr');
+
+          }
+      })
+  })
+</script>
 
 
 </body>
