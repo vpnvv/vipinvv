@@ -783,13 +783,15 @@
           method:"post",
           success:function (response){
               swal("success", "your Application has been successfully submited", "success");
-              // setTimeout(location.reload.bind(location), 4000)
+              setTimeout(location.reload.bind(location), 4000)
               //window.location.href="https://google.com"
               console.log('successsss', response);
           },
           error:function (err){
               // alert("Something Error")
               swal("Failed", "your Application has not been sent", "error");
+              setTimeout(location.reload.bind(location), 4000)
+
               // window.location.reload()
 
               console.log(err, 'errorrr');
