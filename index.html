@@ -782,14 +782,14 @@
           data:$("#submit-form").serialize(),
           method:"post",
           success:function (response){
-              swal("success", "your Application has been successfully submited", "success");
+              swal("success", "Your message successfully submited", "success");
               setTimeout(location.reload.bind(location), 4000)
               //window.location.href="https://google.com"
               console.log('successsss', response);
           },
           error:function (err){
               // alert("Something Error")
-              swal("Failed", "your Application has not been sent", "error");
+              swal("Failed", "Your message has not been sent", "error");
               setTimeout(location.reload.bind(location), 4000)
 
               // window.location.reload()
