@@ -10342,11 +10342,15 @@ span.cursor {
   background-color: var(--bg-light);
   position: relative;
   margin-bottom: 20px;
-  border: 1px solid var(--bg-light); }
+  border: 1px solid var(--bg-light);
+  height: 329px;
+ }
 
 .w3l-services .box-wrap:hover {
   background: var(--bg-color);
-  border: 1px solid var(--border-color); }
+  border: 1px solid var(--border-color);
+  /* border-color: #029d48; */
+ }
 
 .w3l-services .box-wrap:hover h4.number {
   opacity: .2;
